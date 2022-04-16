@@ -1,0 +1,65 @@
+<mat-toolbar color="primary" class="toolbar">
+  <span class="example-spacer">Update information for store</span>
+
+</mat-toolbar>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<mat-card class="example">
+
+  <mat-card-content>
+
+    <mat-form-field appearance="fill" class="field123">
+      <mat-label>Store Code</mat-label>
+      <input matInput [formControl]="storeCodeFormControl">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="field123">
+      <mat-label>Merchant Code</mat-label>
+      <input matInput [formControl]="merchantCodeFormControl">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+
+    <mat-form-field appearance="fill" class="field45">
+      <mat-label>Name</mat-label>
+      <input matInput [formControl]="storeDisplayNameFormControl">
+
+    </mat-form-field>
+    <br>
+
+
+    <mat-form-field appearance="fill" class="field45">
+      <mat-label>Email</mat-label>
+      <input matInput [formControl]="emailFormControl">
+
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="field123">
+      <mat-label>Address</mat-label>
+      <input matInput [formControl]="addressFormControl">
+
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="field123">
+      <mat-label>Phone Number</mat-label>
+      <input matInput [formControl]="phoneNumberFormControl">
+
+    </mat-form-field>
+
+
+
+    <br>
+
+
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button color="primary" mat-button (click)="backToList()">Back</button>
+    <button color="primary" mat-button (click)="updateStore()">Save</button>
+  </mat-card-actions>
+
+</mat-card>

@@ -1,0 +1,40 @@
+.example{
+    position: fixed;
+    
+    justify-content: center;
+    margin-left: 400px;
+    margin-right: 300px;
+    background-color: #f2f2f2;
+    padding-top: 50px;
+}
+.field123{
+    width: 45%;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+.field45{
+    width: 93.5%;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+.toolbar {
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100% !important;
+     background-color: #2b6777;
+     padding-top: 15px;
+    
+  }
+.mCode{
+    font-style: italic;
+    color: #000;
+    text-align: center;
+}
+.mat-button{
+    
+    background-color: #52ab98 ;
+    color: white;
+}

@@ -1,0 +1,60 @@
+<div mat-dialog-content class="table-create">
+  <h1 mat-dialog-title>Create Store for Merchant</h1>
+
+
+  <form [formGroup]="storeForm" class="example-form">
+    <table>
+      <tr>
+        <td>
+          <mat-form-field appearance="outline">
+            <mat-label>Store Code</mat-label>
+            <input formControlName="storeCode" matInput placeholder="StoreCode">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field appearance="outline">
+            <mat-label>Merchant Code</mat-label>
+            <input formControlName="merchantCode" matInput placeholder="StoreCode">
+          </mat-form-field>
+        </td>
+
+
+      </tr>
+
+      <tr>
+
+        <td>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Name</mat-label>
+            <input formControlName="storeDisplayName" matInput>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Phone Number</mat-label>
+            <input formControlName="phoneNumber" matInput>
+          </mat-form-field>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Address</mat-label>
+            <input matInput formControlName="address">
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+  </form>
+
+</div>
+<div mat-dialog-action [align]="'center'">
+  <button mat-raised-button class="createButton" tabindex="1" (click)="createStore()">Create</button>
+  <button mat-raised-button mat-dialog-close tabindex="-1">Close</button>
+</div>

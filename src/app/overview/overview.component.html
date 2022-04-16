@@ -1,0 +1,154 @@
+<div>
+  <mat-toolbar color="primary" class="toolbar">
+    <button mat-icon-button class="example-icon" (click)="back()" aria-label="Example icon-button with menu icon">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <span class="mo">Merchant Overview</span>
+    <span class="example-spacer"></span>
+  </mat-toolbar>
+</div>
+<br>
+<br>
+<br>
+<br>
+<mat-card *ngIf="merchant" class="example">
+  <mat-card-title> Overview for <span class="name">{{merchant.fullName}}</span></mat-card-title>
+  <hr>
+  <mat-card-content>
+    <table>
+      <tr>
+        <td>
+          <mat-icon>label_important</mat-icon> <label> Merchant Code: </label>
+          <p>{{merchant.merchantCode}} </p>
+        </td>
+        <td>
+          <mat-icon>label_important</mat-icon><label> Full Name: </label>
+          <p>{{merchant.fullName}}</p>
+        </td>
+        <td>
+          <mat-icon>label_important</mat-icon><label> Display Name: </label>
+          <p>{{merchant.displayName}}</p>
+        </td>
+        <td>
+          <mat-icon>label_important</mat-icon><label> Account Number: </label>
+          <p>{{merchant.accountNumber}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <mat-icon>location_on</mat-icon><label> Address: </label>
+          <p>{{merchant.address}}</p>
+        </td>
+        <td>
+          <mat-icon>contact_phone</mat-icon><label> Phone Number: </label>
+          <p>{{merchant.phoneNumber}}</p>
+        </td>
+        <td>
+          <mat-icon>email</mat-icon><label> Email </label>
+          <p>{{merchant.email}}</p>
+        </td>
+        <td>
+          <mat-icon>label_important</mat-icon><label> Website: </label>
+          <p>{{merchant.merchantWebsite}}</p>
+        </td>
+      </tr>
+    </table>
+  </mat-card-content>
+</mat-card>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<mat-card class="example-form">
+  <mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource" matSort class="tableT">
+
+    <ng-container matColumnDef="storeCode">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Store Code </th>
+      <td mat-cell *matCellDef="let element"> {{element.storeCode}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="merchantCode">
+      <th mat-header-cell *matHeaderCellDef> Merchant Code </th>
+      <td mat-cell *matCellDef="let element"> {{element.merchantCode}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="storeDisplayName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Store Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.storeDisplayName}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef> Address </th>
+      <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="phoneNumber">
+      <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+      <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="overviewAction">
+      <th mat-header-cell *matHeaderCellDef> Overview </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary"
+          (click)="navigateToDetails(element.merchantCode, element.storeCode, element.storeDisplayName, element.address, element.phoneNumber, element.email)"
+          aria-label="Example icon button with a vertical three dot icon">
+          <mat-icon>info</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="updateAction">
+      <th mat-header-cell *matHeaderCellDef> Update </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="primary" (click)="navigateToUpdateStore(element.merchantCode,element.storeCode)"
+          aria-label="Example icon button with a vertical three dot icon">
+          <mat-icon>update</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="deleteAction">
+      <th mat-header-cell *matHeaderCellDef> Delete </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button class="deleteButton" (click)="deleteStore(element.storeCode)"
+          aria-label="Example icon button with a vertical three dot icon">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="7">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users" class="filter"></mat-paginator>
+
+
+  <ng-container class="addb">
+    <button mat-fab color="primary" (click)="navigateToCreateStore()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </ng-container>
+</mat-card>
+<br>
+<br>

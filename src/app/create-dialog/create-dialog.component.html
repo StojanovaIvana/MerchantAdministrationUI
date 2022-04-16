@@ -1,0 +1,75 @@
+<div mat-dialog-content class="table-create">
+  <h1 mat-dialog-title>Create Merchant</h1>
+
+  <form [formGroup]="merchantForm" class="example-form">
+    <mat-form-field appearance="outline">
+      <mat-label>Merchant Code</mat-label>
+      <input formControlName="merchantCode" matInput placeholder="Merchant">
+    </mat-form-field>
+
+
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Full Name</mat-label>
+            <input formControlName="fullName" matInput>
+          </mat-form-field>
+        </td>
+
+        <td>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Name</mat-label>
+            <input formControlName="displayName" matInput>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+    <p>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+
+    </p>
+
+    <p>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Phone Number</mat-label>
+        <input formControlName="phoneNumber" matInput>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="address">
+      </mat-form-field>
+    </p>
+
+    <table class="example-full-width" cellspacing="0">
+      <tr>
+
+        <td>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Website</mat-label>
+            <input formControlName="merchantWebsite" matInput>
+          </mat-form-field>
+        </td>
+        <td>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Account Number</mat-label>
+            <input formControlName="accountNumber" matInput>
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+  </form>
+
+
+
+
+
+</div>
+<div mat-dialog-action [align]="'center'">
+  <button mat-raised-button class="createButton" tabindex="1" (click)="createMerchant()">Create</button>
+  <button mat-raised-button mat-dialog-close tabindex="-1" class="closeButton">Close</button>
+</div>
