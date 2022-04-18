@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MerchantService } from '../merchant.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-merchant',
@@ -18,11 +19,13 @@ export class MerchantComponent implements OnInit {
   public emailFormControl: FormControl = new FormControl({});
   public merchantWebsiteFormControl: FormControl = new FormControl({});
   public accountNumberFormControl: FormControl = new FormControl({});
-  public merchant: any;
+  public merchant: any;;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private merchantService: MerchantService
+    private merchantService: MerchantService,
+    private _location: Location
   ) { }
 
   ngOnInit() {
@@ -37,6 +40,7 @@ export class MerchantComponent implements OnInit {
   }
 
   public updateMerchant() {
+  
     this.merchant.merchantCode = this.merchantCodeFormControl.value;
     this.merchant.displayName = this.displayNameFormControl.value;
     this.merchant.fullName = this.displayNameFormControl.value;
@@ -47,10 +51,12 @@ export class MerchantComponent implements OnInit {
     this.merchant.accountNumber = this.accountNumberFormControl.value;
 
     this.merchantService.Merchant_UpdateMerchant(this.merchant.merchantCode, this.merchant).subscribe(() => {
-      //
+      alert("Merchant updated successfully");
+      this._location.back();
+
 
     });
-
+  
   }
   public backToList() {
     this.router.navigate(['merchants']);

@@ -12,23 +12,25 @@
 <mat-card class="example">
 
   <mat-card-content>
-
+    <form  class="example-form">
     <mat-form-field appearance="fill" class="field123">
       <mat-label>Merchant Code</mat-label>
-      <input matInput [formControl]="merchantCodeFormControl">
-      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-    </mat-form-field>
+      <input matInput [formControl]="merchantCodeFormControl" required>
+      <mat-icon matSuffix>account_box</mat-icon> 
+        </mat-form-field>
     <br>
 
     <mat-form-field appearance="fill" class="field123">
       <mat-label>Display Name</mat-label>
-      <input matInput [formControl]="displayNameFormControl">
+      <input matInput [formControl]="displayNameFormControl" >
+      <mat-icon matSuffix>circle</mat-icon>
     </mat-form-field>
-
+   
 
     <mat-form-field appearance="fill" class="field123">
       <mat-label>Full Name</mat-label>
-      <input matInput [formControl]="fullNameFormControl">
+      <input matInput [formControl]="fullNameFormControl" required>
+      <mat-icon matSuffix>circle</mat-icon>
     </mat-form-field>
 
 
@@ -36,30 +38,35 @@
     <mat-form-field appearance="fill" class="field45">
       <mat-label>Address</mat-label>
       <input matInput [formControl]="addressFormControl">
+      <mat-icon matSuffix>place</mat-icon>
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="field123">
       <mat-label>Phone Number</mat-label>
       <input matInput [formControl]="phoneNumberFormControl">
+      <mat-icon matSuffix>phone</mat-icon> 
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="field123">
       <mat-label>Account Number</mat-label>
-      <input matInput [formControl]="accountNumberFormControl">
+      <input matInput [formControl]="accountNumberFormControl" required>
+      <mat-icon matSuffix>credit_card</mat-icon>
     </mat-form-field>
 
     <mat-form-field appearance="fill" class="field45">
       <mat-label>Email</mat-label>
-      <input matInput [formControl]="emailFormControl">
+      <input matInput [formControl]="emailFormControl" required>
+      <mat-icon matSuffix>email</mat-icon>
     </mat-form-field>
 
     <br>
     <mat-form-field appearance="fill" class="field45">
       <mat-label>Web site</mat-label>
       <input matInput [formControl]="merchantWebsiteFormControl">
+      <mat-icon matSuffix>web</mat-icon> 
     </mat-form-field>
 
-
+    </form>
   </mat-card-content>
   <mat-card-actions align="end">
     <button color="primary" mat-button (click)="backToList()">Back</button>

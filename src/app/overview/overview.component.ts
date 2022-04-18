@@ -67,8 +67,12 @@ export class OverviewComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   public navigateToCreateStore() {
+    const merchantCode=this.merchant.merchantCode;
     const dialogRef = this.dialog.open(CreateStoreDialogComponent, {
-      width: '50%'
+      width: '50%',
+      data:{
+        merchantCode:merchantCode,
+      }
     });
     dialogRef.afterClosed().subscribe(() => {
       this.ngOnInit();
@@ -87,7 +91,7 @@ export class OverviewComponent implements OnInit {
             return object.storeCode === storeCode;
           });
 
-          console.log(indexOfObject); // 👉️ 1
+         // console.log(indexOfObject); // 👉️ 1
 
           this.dataSource.data.splice(indexOfObject, 1);
           // console.log(this.dataSource.data);
@@ -99,7 +103,7 @@ export class OverviewComponent implements OnInit {
 
   }
   public navigateToUpdateStore(merchantCode: string, storeCode: string) {
-    console.log('raboti', storeCode);
+   
     this.router.navigate(['merchants/' + merchantCode + '/stores/' + storeCode]);
   }
 

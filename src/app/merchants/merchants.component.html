@@ -1,11 +1,10 @@
-<body>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <div>
+<body> 
     <mat-toolbar class="toolbar">
+      <img src="../../assets/images/logo.png" class="logo">
       <span>Merchants</span>
       <span class="example-spacer"></span>
     </mat-toolbar>
-  </div>
+  
   <br>
   <br>
   <br>
@@ -21,13 +20,13 @@
     <table mat-table [dataSource]="dataSource" matSort>
 
       <ng-container matColumnDef="merchantCode">
-        <th mat-header-cell *matHeaderCellDef> Merchant Code </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Merchant Code </th>
         <td mat-cell *matCellDef="let element"> {{element.merchantCode}} </td>
       </ng-container>
 
 
       <ng-container matColumnDef="displayName">
-        <th mat-header-cell *matHeaderCellDef> Display Name </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Display Name </th>
         <td mat-cell *matCellDef="let element"> {{element.displayName}} </td>
       </ng-container>
 

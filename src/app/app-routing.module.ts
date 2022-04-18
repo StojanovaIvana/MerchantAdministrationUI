@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 import { MerchantComponent } from './merchant/merchant.component';
+import { MerchantAdministrationComponent } from './merchantAdministration/merchantAdministration.component';
 import { MerchantsComponent } from './merchants/merchants.component';
 import { OverviewComponent } from './overview/overview.component';
 import { OverviewStoreComponent } from './overviewStore/overviewStore.component';
@@ -30,6 +31,9 @@ const routes: Routes = [
   },
   {
     path: 'merchants/:merchantCode/stores/:storeCode', component: OverviewStoreComponent
+  },
+  {
+    path: 'merchantadministration', component: MerchantAdministrationComponent
   }
 
 ];

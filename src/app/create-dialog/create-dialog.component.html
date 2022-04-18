@@ -5,6 +5,10 @@
     <mat-form-field appearance="outline">
       <mat-label>Merchant Code</mat-label>
       <input formControlName="merchantCode" matInput placeholder="Merchant">
+      <mat-icon matSuffix>account_box</mat-icon>
+      <mat-error *ngIf="merchantCode.hasError('required')">
+        Full Name is <strong>required</strong>
+      </mat-error>
     </mat-form-field>
 
 
@@ -13,7 +17,11 @@
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Full Name</mat-label>
-            <input formControlName="fullName" matInput>
+            <input formControlName="fullName"  matInput>
+            <mat-icon matSuffix>circle</mat-icon>
+            <mat-error *ngIf="fullName.hasError('required')">
+              Full Name is <strong>required</strong>
+            </mat-error>
           </mat-form-field>
         </td>
 
@@ -21,27 +29,36 @@
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Name</mat-label>
             <input formControlName="displayName" matInput>
+            <mat-icon matSuffix>circle</mat-icon>
           </mat-form-field>
         </td>
       </tr>
     </table>
     <p>
-
-      <mat-form-field class="example-full-width" appearance="fill">
+     <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Email</mat-label>
-        <input matInput formControlName="email">
+        <input matInput placeholder="pat@example.com" formControlName="email" class="field456" required>
+        <mat-icon matSuffix>email</mat-icon> 
+        <mat-error *ngIf="email.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="email.hasError('email')">
+          Please enter a valid email address
+        </mat-error>
       </mat-form-field>
-
     </p>
 
     <p>
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Phone Number</mat-label>
-        <input formControlName="phoneNumber" matInput>
+        <input formControlName="phoneNumber" class="field456" matInput>
+        <mat-icon matSuffix>phone</mat-icon>
       </mat-form-field>
+
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Address</mat-label>
-        <input matInput formControlName="address">
+        <input matInput formControlName="address" class="field456">
+        <mat-icon matSuffix>place</mat-icon> 
       </mat-form-field>
     </p>
 
@@ -52,12 +69,18 @@
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Website</mat-label>
             <input formControlName="merchantWebsite" matInput>
+            <mat-icon matSuffix>web</mat-icon> 
           </mat-form-field>
         </td>
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Account Number</mat-label>
-            <input formControlName="accountNumber" matInput>
+            <input formControlName="accountNumber" matInput #accountNumber maxlength="10">
+            <mat-hint align="end">{{accountNumber.value.length}} / 10</mat-hint>
+            <mat-icon matSuffix>credit_card</mat-icon> 
+            <mat-error *ngIf="fullName.hasError('required')">
+             Account Number is <strong>required</strong>
+            </mat-error>
           </mat-form-field>
         </td>
       </tr>

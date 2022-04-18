@@ -25,9 +25,10 @@ import { CreateStoreDialogComponent } from './createStore-dialog/createStore-dia
 import { UpdateStoreComponent } from './updateStore/updateStore.component';
 import { OverviewStoreComponent } from './overviewStore/overviewStore.component';
 import {MatListModule} from '@angular/material/list';
+import { MerchantAdministrationComponent } from './merchantAdministration/merchantAdministration.component';
 
 @NgModule({
-  declarations: [							
+  declarations: [								
     AppComponent,
     MerchantsComponent,
     MerchantComponent,
@@ -36,7 +37,8 @@ import {MatListModule} from '@angular/material/list';
       OverviewComponent,
       CreateStoreDialogComponent,
       UpdateStoreComponent,
-      OverviewStoreComponent
+      OverviewStoreComponent,
+      MerchantAdministrationComponent
    ],
   imports: [
     BrowserModule,

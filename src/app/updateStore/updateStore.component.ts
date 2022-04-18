@@ -16,7 +16,6 @@ export class UpdateStoreComponent implements OnInit {
   public addressFormControl: FormControl = new FormControl({});
   public phoneNumberFormControl: FormControl = new FormControl({});
   public emailFormControl: FormControl = new FormControl({});
-
   public store: any;
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -45,7 +44,8 @@ export class UpdateStoreComponent implements OnInit {
 
 
     this.merchantService.Merchants_UpdateStore(this.store.storeCode, this.store).subscribe(() => {
-      //
+      alert("Store updated succesfully");
+      this._location.back();
 
     });
 

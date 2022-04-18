@@ -9,12 +9,17 @@
           <mat-form-field appearance="outline">
             <mat-label>Store Code</mat-label>
             <input formControlName="storeCode" matInput placeholder="StoreCode">
+            <mat-icon matSuffix>circle</mat-icon>
+            <mat-error *ngIf="storeCode.hasError('required')">
+              StoreCode is <strong>required</strong>
+              </mat-error>
           </mat-form-field>
         </td>
         <td>
           <mat-form-field appearance="outline">
             <mat-label>Merchant Code</mat-label>
-            <input formControlName="merchantCode" matInput placeholder="StoreCode">
+            <input formControlName="merchantCode" matInput placeholder="merchantCode"  [readonly]="true">
+            <mat-icon matSuffix>account_box</mat-icon> 
           </mat-form-field>
         </td>
 
@@ -27,12 +32,17 @@
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Name</mat-label>
             <input formControlName="storeDisplayName" matInput>
+            <mat-icon matSuffix>store</mat-icon>
+            <mat-error *ngIf="name.hasError('required')">
+              Name is <strong>required</strong>
+              </mat-error>
           </mat-form-field>
         </td>
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Phone Number</mat-label>
             <input formControlName="phoneNumber" matInput>
+            <mat-icon matSuffix>phone</mat-icon> 
           </mat-form-field>
         </td>
       </tr>
@@ -41,12 +51,20 @@
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Address</mat-label>
             <input matInput formControlName="address">
+            <mat-icon matSuffix>place</mat-icon> 
           </mat-form-field>
         </td>
         <td>
           <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Email</mat-label>
             <input matInput formControlName="email">
+            <mat-icon matSuffix>email</mat-icon> 
+            <mat-error *ngIf="email.hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="email.hasError('email')">
+              Please enter a valid email address
+            </mat-error>
           </mat-form-field>
         </td>
       </tr>
